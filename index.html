@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>flying text effects | anime.js</title>
+    
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section>
+        <p class="text">Lorem, ipsum dolor hlw sit man amet  mb
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita, mollitia reiciendis, dignissimos eaque molestiae nobis quam reprehenderit vel quos laboriosam, eum odio? Iusto minima libero a explicabo exercitationem vitae velit voluptate aut provident, aliquam voluptatum omnis sequi saepe beatae reprehenderit cum alias dotemporibus reiciendis minima, fugiat dolore officia. Hic eos eaque veritatis iure enim laborum assumenda, alias fugiat velit itaque molestiae id beatae! Repellat at maiores ad ullam odio sapiente ea magnam. consectetur adipisicing elit. Earum eveniet nulla incidunt, vel saepe consequuntur ad cumque dolorem veritatis officiis minima, aut mollitia molestiae! Voluptates voluptate nostrum ipsam distinctio sapiente?</p>
+       </section>
+
+    <script src="anime.min.js"></script>
+    <script>
+        // Now, Split text into letters.
+        const text = document.querySelector('.text');
+        text.innerHTML = text.textContent.replace(/\S/g, "<span>$&</span>");
+        
+        const animation = anime.timeline({
+            targets : '.text span',
+            easeing : 'easeInOutExpo',
+            loop : true,
+        });
+        animation
+        .add({ 
+           rotate : function(){
+                return anime.random(-360,360)
+            },
+            translateX : function(){
+                return anime.random(-500,500)
+            },
+            translateY : function(){
+                return anime.random(-500,500)
+            },
+            duration : 5000,
+            delay : anime.stagger(20),
+
+        })
+
+        .add({ 
+           rotate : 0,
+           translateX : 0,
+           translateY : 0,
+           duration : 5000,
+            delay : anime.stagger(20),
+
+        })
+
+
+       
+
+    </script>
+</body>
+</html>
